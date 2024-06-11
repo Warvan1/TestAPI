@@ -17,13 +17,13 @@ var corsOptions = {
 
 app.use(cors(corsOptions));
 
-app.get('/', (req, res) => {
+app.get('/express/', (req, res) => {
     res.json({
         type: "index"
     });
 });
 
-app.get('/public', (req, res) => {
+app.get('/express/public', (req, res) => {
     console.log(req.headers);
 
     res.json({
@@ -31,7 +31,7 @@ app.get('/public', (req, res) => {
     });
 });
 
-app.get('/private', jwtCheck, (req, res) => {
+app.get('/express/private', jwtCheck, (req, res) => {
     console.log("GET SUCCESS!!!");
     console.log(req.headers);
 
@@ -40,7 +40,7 @@ app.get('/private', jwtCheck, (req, res) => {
     });
 });
 
-app.post('/private', jwtCheck, jsonParser, (req, res) => {
+app.post('/express/private', jwtCheck, jsonParser, (req, res) => {
     console.log("POST SUCCESS!!!");
     console.log(req.headers);
     console.log(req.body);
@@ -51,7 +51,7 @@ app.post('/private', jwtCheck, jsonParser, (req, res) => {
     });
 });
 
-app.post('/senduser', jwtCheck, jsonParser, (req, res) => {
+app.post('/express/senduser', jwtCheck, jsonParser, (req, res) => {
     console.log("recieved user!!!");
     console.log(req.headers);
     console.log(req.body);
