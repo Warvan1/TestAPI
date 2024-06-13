@@ -1,7 +1,6 @@
 var router = require('express').Router();
 var jsonParser = require('body-parser').json();
-const query = require('../postgres.js');
-const jwtCheck = require('../auth.js');
+const { jwtCheck, db } = require('../utils.js');
 
 router.get('/private', jwtCheck, (req, res) => {
     console.log("GET SUCCESS!!!");
@@ -17,7 +16,7 @@ router.post('/private', jwtCheck, jsonParser, async (req, res) => {
     console.log(req.headers);
     console.log(req.body);
 
-    var result = await query("select * from second_test_table", []);
+    var result = await db.query("select * from second_test_table", []);
     console.log(result.rows);
 
     res.json({

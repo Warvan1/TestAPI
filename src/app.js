@@ -1,5 +1,6 @@
 const express = require('express');
-var registerRoutes = require('./routes/index.js');
+var public = require('./routes/public.js');
+var private = require('./routes/private.js');
 var cors = require('cors');
 
 const app = express();
@@ -11,6 +12,7 @@ var corsOptions = {
 
 app.use(cors(corsOptions));
 
-registerRoutes(app)
+app.use('/express', public);
+app.use('/express', private);
 
 app.listen(5000);
