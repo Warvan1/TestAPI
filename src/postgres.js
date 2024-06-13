@@ -1,5 +1,5 @@
-const fs = require('fs');
 const { Pool } = require('pg');
+const fs = require('fs');
 
 const pool = new Pool(JSON.parse(fs.readFileSync('postgresAuthentication.json')));
 
