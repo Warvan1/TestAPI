@@ -1,5 +1,5 @@
 const express = require('express');
-var indexRouter = require('./routes/index.js');
+var registerRoutes = require('./routes/index.js');
 var cors = require('cors');
 
 const app = express();
@@ -11,6 +11,6 @@ var corsOptions = {
 
 app.use(cors(corsOptions));
 
-app.use('/express', indexRouter)
+registerRoutes(app)
 
 app.listen(5000);
